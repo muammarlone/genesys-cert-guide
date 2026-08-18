@@ -34,7 +34,7 @@ Architect-validated pitfalls, strategy notes, and test-taking guidance.
 ### Recommended Prep Split
 
 - 40% Genesys Beyond official courses (GCX-GCP track)
-- 30% Hands-on lab in trial or sandbox org
+- 30% Hands-on lab in **free Genesys Cloud trial org** (genesys.com — non-negotiable for the ~50% routing/ACD domain)
 - 20% Practice exams (certificationbox, ExamTopics community notes)
 - 10% Review community.genesys.com for real-world edge cases
 
@@ -92,6 +92,12 @@ Architect-validated pitfalls, strategy notes, and test-taking guidance.
 
 ---
 
+## GCP-GCX: Consolidated Cert Warning
+
+GCP-GCX is the least-documented certification. Public exam prep resources are sparse compared to GCX-GCP/ARC/GCD. Contact Genesys Beyond directly for prep guidance: https://beyond.genesys.com. Do not rely solely on community sources for this track.
+
+---
+
 ## Scheduling Your Exams
 
 - **Register at:** [Genesys Beyond → Certifications](https://beyond.genesys.com)
@@ -99,6 +105,16 @@ Architect-validated pitfalls, strategy notes, and test-taking guidance.
 - **Reschedule:** Free if done 24+ hours before exam
 - **Retake policy:** 14-day wait after first fail; 60-day wait after second fail
 - **Validity:** 3 years from pass date; recertify via updated exam or continuing education credits
+
+---
+
+## Study Order: Know Your Starting Point
+
+Default order: **GCX-GCP → GCX-GCD → GCX-ARC**
+
+Exception: if you have a strong development background (Salesforce/ServiceNow integrations, REST APIs, OAuth2), start with **GCX-GCD** — your existing knowledge transfers directly and you'll likely pass it faster than GCX-GCP.
+
+> Note on flashcard difficulty: ARC-level flashcards (PSTN cutover, capacity planning) are harder than actual GCX-GCP exam questions. Good stretch prep, but don't use your performance on those to gauge GCX-GCP readiness.
 
 ---
 

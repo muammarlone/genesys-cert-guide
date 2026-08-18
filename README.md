@@ -48,7 +48,11 @@ Open `index.html` locally in any browser — no server needed.
 
 ## Resources
 
-- [Genesys Beyond](https://beyond.genesys.com) — official training portal
-- [Genesys Cloud Developer Center](https://developer.genesys.cloud) — API docs
-- [Genesys Community](https://community.genesys.com) — Q&A, practice scenarios
+- [Genesys Beyond](https://beyond.genesys.com) — official training + cert registration
+- [Genesys Cloud Free Trial](https://www.genesys.com/genesys-cloud/free-trial) — hands-on practice org (required for routing/ACD domain, ~50% of GCX-GCP)
+- [Genesys Cloud Developer Center](https://developer.genesys.cloud) — API docs + API Explorer
+- [Genesys Community](https://community.genesys.com) — Q&A, practice scenarios, migration threads
 - [AppFoundry](https://appfoundry.genesys.com) — integration catalog
+- [GitHub SDK samples](https://github.com/MyPureCloud) — official code examples
+
+> **GCP-GCX note:** The consolidated cert is the least-documented path. Contact Genesys Beyond directly for prep guidance — public resources are sparse.
