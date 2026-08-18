@@ -98,6 +98,26 @@ body {
 .hdr-nav a:hover { color: var(--text); background: var(--surface-alt); }
 .hdr-ts { margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); flex-shrink: 0; }
 
+/* ── BREADCRUMB ──────────────────────────────────────────────────────── */
+.breadcrumb {
+  position: sticky; top: 54px; z-index: 190;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 6px;
+  padding: 0 28px; height: 30px;
+  font-family: var(--font-ui); font-size: 11px;
+  overflow-x: auto; white-space: nowrap;
+}
+.bc-root { color: var(--text-faint); font-weight: 500; }
+.bc-sep  { color: var(--text-faint); font-size: 10px; }
+.bc-trail { display: flex; align-items: center; gap: 6px; }
+.bc-crumb { color: var(--text-muted); font-weight: 500; }
+.bc-crumb.active { color: var(--text); font-weight: 600; }
+.bc-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; flex-shrink: 0; vertical-align: middle; }
+.bc-dot.pro { background: var(--pro); }
+.bc-dot.arc { background: var(--arc); }
+.bc-dot.dev { background: var(--dev); }
+
 /* ── LAYOUT ─────────────────────────────────────────────────────────── */
 .wrap { max-width: 900px; margin: 0 auto; padding: 44px 24px 80px; }
 
@@ -409,6 +429,9 @@ body {
 .book-card.arc-book .book-spine { background: linear-gradient(90deg, var(--arc), var(--pro)); }
 .book-card.dev-book .book-spine { background: linear-gradient(90deg, var(--dev), var(--arc)); }
 .book-card.upcoming .book-spine { background: linear-gradient(90deg, #374151, #6B7280); }
+.book-card.v1-book .book-spine  { background: linear-gradient(90deg, #EF4444, var(--arc)); }
+.book-card.v2-book .book-spine  { background: linear-gradient(90deg, var(--pro), #3B82F6); }
+.book-card.v3-book .book-spine  { background: linear-gradient(90deg, #10B981, var(--dev)); }
 .book-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
 .book-series {
   font-family: var(--font-ui);
@@ -461,11 +484,12 @@ body {
 .book-btn.dev-btn { background: var(--dev); }
 .book-btn.coming-btn {
   background: var(--surface-alt);
-  color: var(--text-muted);
+  color: var(--text);
   border: 1px solid var(--border);
-  cursor: default;
+  cursor: pointer;
+  font-weight: 600;
 }
-.book-btn.coming-btn:hover { opacity: 1; transform: none; }
+.book-btn.coming-btn:hover { opacity: .85; transform: translateY(-1px); }
 .books-author-band {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -536,6 +560,15 @@ footer a { color: var(--text-muted); }
   </nav>
   <span class="hdr-ts">Updated Aug 2026</span>
 </header>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" id="js-breadcrumb" aria-label="Current section">
+  <span class="bc-root">Genesys CX Guide</span>
+  <span class="bc-sep">›</span>
+  <span class="bc-trail" id="js-bc-trail">
+    <span class="bc-crumb active" id="js-bc-current">Overview</span>
+  </span>
+</nav>
 
 <!-- MAIN -->
 <div class="wrap">
@@ -1350,57 +1383,100 @@ footer a { color: var(--text-muted); }
 
   <div class="books-grid">
 
-    <div class="book-card upcoming">
+    <!-- TRILOGY VOLUME I -->
+    <div class="book-card upcoming v1-book">
       <div class="book-spine"></div>
       <div class="book-body">
         <div class="book-coming-badge">Coming Soon</div>
-        <div class="book-series">Contact Center Technology Series</div>
-        <div class="book-title">Contact Center AI &amp; Automation: The Practitioner's Playbook</div>
-        <div class="book-subtitle">AI-powered routing · Bot orchestration · Agent Assist · WEM integration</div>
+        <div class="book-series">The Enterprise Contact Center Trilogy · Vol. I</div>
+        <div class="book-title">Security Architecture for Enterprise Contact Centers</div>
+        <div class="book-subtitle">Zero-Trust CCaaS · Identity Federation · AI Fraud Defense · Compliance Architecture</div>
         <div class="book-excerpt">
-          Covers the full lifecycle of AI deployment in enterprise contact centers — from bot strategy and intent design through to real-time agent assist, QA automation, and ROI measurement.
+          16 chapters applying zero-trust principles to SIP, RTP, and WebRTC. Covers the shared responsibility model across Genesys, Amazon Connect, and Cisco Webex CC — and the AI-generated voice fraud threats that legacy security cannot detect.
         </div>
       </div>
       <div class="book-footer">
-        <span class="book-btn coming-btn">Notify me when available</span>
+        <a class="book-btn coming-btn" href="mailto:muammarlone@gmail.com?subject=Notify me: Contact Center Trilogy Vol. I" style="display:block;text-align:center;padding:10px 16px;">Get Early Access →</a>
       </div>
     </div>
 
-    <div class="book-card upcoming">
+    <!-- TRILOGY VOLUME II -->
+    <div class="book-card upcoming v2-book">
       <div class="book-spine"></div>
       <div class="book-body">
         <div class="book-coming-badge">Coming Soon</div>
-        <div class="book-series">Contact Center Technology Series</div>
-        <div class="book-title">Contact Center Platform Migration &amp; Modernisation Guide</div>
-        <div class="book-subtitle">Legacy CCaaS to Cloud · PSTN cutover · Risk mitigation · Multi-site rollout</div>
+        <div class="book-series">The Enterprise Contact Center Trilogy · Vol. II</div>
+        <div class="book-title">Platform Architecture for Enterprise Contact Centers</div>
+        <div class="book-subtitle">CCaaS Vendor Evaluation · Hyperscaler Strategy · Contact Center Mesh · Migration Governance</div>
         <div class="book-excerpt">
-          A field-tested migration framework for moving enterprise contact centers from Avaya, Cisco, and NICE to modern cloud platforms — with real cutover runbooks, rollback plans, and post-migration optimisation.
+          Platform decisions lock in architectural trajectory for 5–7 years. Covers the full CCaaS landscape — Genesys, NICE, Amazon Connect, Five9 — plus the Contact Center Mesh pattern for vendor-agnostic multi-platform migration without big-bang risk.
         </div>
       </div>
       <div class="book-footer">
-        <span class="book-btn coming-btn">Notify me when available</span>
+        <a class="book-btn coming-btn" href="mailto:muammarlone@gmail.com?subject=Notify me: Contact Center Trilogy Vol. II" style="display:block;text-align:center;padding:10px 16px;">Get Early Access →</a>
       </div>
     </div>
 
-    <div class="book-card upcoming">
+    <!-- TRILOGY VOLUME III -->
+    <div class="book-card upcoming v3-book">
       <div class="book-spine"></div>
       <div class="book-body">
         <div class="book-coming-badge">Coming Soon</div>
-        <div class="book-series">Contact Center Technology Series</div>
-        <div class="book-title">Responsible AI in Customer Experience: Governance, Ethics &amp; Compliance</div>
-        <div class="book-subtitle">AI governance · Bias mitigation · Regulatory compliance · CX trust architecture</div>
+        <div class="book-series">The Enterprise Contact Center Trilogy · Vol. III</div>
+        <div class="book-title">Value Architecture for Enterprise Contact Centers</div>
+        <div class="book-subtitle">Cost Center to Strategic Asset · CX Economics · AI Governance · Workforce Transformation</div>
         <div class="book-excerpt">
-          How enterprises deploy AI in customer-facing systems responsibly — covering explainability, fairness auditing, data sovereignty, and the governance frameworks required for regulated industries.
+          Reframes the contact center as a strategic asset with four value dimensions: revenue generation, customer retention, intelligence production, and brand equity. Includes Total Value Architecture — a five-dimension ROI framework for board-level investment cases.
         </div>
       </div>
       <div class="book-footer">
-        <span class="book-btn coming-btn">Notify me when available</span>
+        <a class="book-btn coming-btn" href="mailto:muammarlone@gmail.com?subject=Notify me: Contact Center Trilogy Vol. III" style="display:block;text-align:center;padding:10px 16px;">Get Early Access →</a>
       </div>
     </div>
 
   </div>
 
 </div><!-- /wrap -->
+
+<script>
+(function () {
+  var sections = [
+    { id: 'overview',  label: 'Overview',              dot: null },
+    { id: 'gcx-gcp',  label: 'GCX-GCP — Professional', dot: 'pro' },
+    { id: 'gcx-arc',  label: 'GCX-ARC — Architect',    dot: 'arc' },
+    { id: 'gcx-gcd',  label: 'GCX-GCD — Developer',    dot: 'dev' },
+    { id: 'paths',    label: 'Learning Paths',          dot: null },
+    { id: 'resources',label: 'Resources',               dot: null },
+    { id: 'insights', label: 'Architect Notes',         dot: 'arc' },
+    { id: 'books',    label: 'Books',                   dot: null }
+  ];
+  var trail = document.getElementById('js-bc-trail');
+  if (!trail) return;
+
+  function setSection(sec) {
+    var html = '';
+    if (sec.dot) {
+      html += '<span class="bc-dot ' + sec.dot + '"></span>';
+    }
+    html += '<span class="bc-crumb active">' + sec.label + '</span>';
+    trail.innerHTML = html;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var sec = sections.find(function (s) { return s.id === e.target.id; });
+        if (sec) setSection(sec);
+      }
+    });
+  }, { rootMargin: '-54px 0px -55% 0px', threshold: 0 });
+
+  sections.forEach(function (s) {
+    var el = document.getElementById(s.id);
+    if (el) observer.observe(el);
+  });
+})();
+</script>
 
 <footer>
   <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
