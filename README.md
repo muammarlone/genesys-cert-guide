@@ -8,8 +8,12 @@ Principal-architect-validated study kit for Genesys Cloud CX certifications. Bui
 
 The notebook contains:
 - 7 curated sources (official Genesys Beyond, exam guides, developer docs)
-- AI-generated Study Guide, Flashcards (Hard), Quiz (Hard)
-- Audio Overview discussion on GCX-GCP exam strategy
+- **Audio Overview** — 22 min Deep Dive discussion, GCX-GCP exam strategy focus
+- **Video Overview** — Explainer format, full platform walkthrough
+- **Slide Deck** — Detailed deck covering all 4 cert tracks with domain breakdowns
+- **Mind Map** — Visual map of cert tracks, domains, and topic relationships
+- **Reports** — Technical Primer (platform modules) + Briefing Doc (exam strategy)
+- **Study Guide, Flashcards (Hard), Quiz (Hard)** — Active recall materials
 - HOW TO USE guide note
 
 ## Interactive Curriculum
