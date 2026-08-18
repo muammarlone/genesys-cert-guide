@@ -1,0 +1,1179 @@
+
+<title>Genesys Cloud CX Certifications</title>
+<style>
+/* ── DESIGN TOKENS ─────────────────────────────────────────────────── */
+:root {
+  --bg:           #EDF1F7;
+  --surface:      #FFFFFF;
+  --surface-alt:  #F5F8FC;
+  --border:       #CDD8E8;
+  --text:         #192B3C;
+  --text-muted:   #5A798F;
+  --text-faint:   #99B2C4;
+
+  --pro:          #006E7C;
+  --pro-bg:       #E6F5F7;
+  --arc:          #A85408;
+  --arc-bg:       #FEF2E5;
+  --dev:          #5521B5;
+  --dev-bg:       #EDE9FE;
+
+  --font-ui:  'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  --r:   8px;
+  --r-lg: 14px;
+  --sh: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.04);
+  --sh-md: 0 4px 14px rgba(0,0,0,.09), 0 2px 4px rgba(0,0,0,.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:          #0A1522;
+    --surface:     #111D2D;
+    --surface-alt: #152030;
+    --border:      #1D3048;
+    --text:        #DCE8F4;
+    --text-muted:  #7899B0;
+    --text-faint:  #344F66;
+    --pro:         #00ABBE;
+    --pro-bg:      #06222A;
+    --arc:         #F59E0B;
+    --arc-bg:      #1C1100;
+    --dev:         #8B5CF6;
+    --dev-bg:      #180E32;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:          #0A1522;
+  --surface:     #111D2D;
+  --surface-alt: #152030;
+  --border:      #1D3048;
+  --text:        #DCE8F4;
+  --text-muted:  #7899B0;
+  --text-faint:  #344F66;
+  --pro:         #00ABBE;
+  --pro-bg:      #06222A;
+  --arc:         #F59E0B;
+  --arc-bg:      #1C1100;
+  --dev:         #8B5CF6;
+  --dev-bg:      #180E32;
+}
+
+/* ── RESET & BASE ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── STICKY HEADER ──────────────────────────────────────────────────── */
+.hdr {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 28px; height: 54px;
+}
+.hdr-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.hdr-hex {
+  width: 26px; height: 26px; background: var(--pro); flex-shrink: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.hdr-name { font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: -.2px; }
+.hdr-sep  { width: 1px; height: 18px; background: var(--border); }
+.hdr-sub  { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.hdr-nav  { display: flex; gap: 2px; overflow-x: auto; }
+.hdr-nav a {
+  text-decoration: none; color: var(--text-muted);
+  font-family: var(--font-ui); font-size: 13px; font-weight: 500;
+  padding: 4px 12px; border-radius: 6px; white-space: nowrap;
+  transition: color .14s, background .14s;
+}
+.hdr-nav a:hover { color: var(--text); background: var(--surface-alt); }
+.hdr-ts { margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); flex-shrink: 0; }
+
+/* ── LAYOUT ─────────────────────────────────────────────────────────── */
+.wrap { max-width: 900px; margin: 0 auto; padding: 44px 24px 80px; }
+
+/* ── HERO BAND ──────────────────────────────────────────────────────── */
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px 44px;
+  margin-bottom: 40px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(180deg, var(--pro) 0%, var(--dev) 60%, var(--arc) 100%);
+}
+.hero-eye {
+  font-family: var(--font-ui);
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.8px;
+  color: var(--text-muted); margin-bottom: 8px;
+}
+.hero-title {
+  font-family: var(--font-ui);
+  font-size: 26px; font-weight: 700; line-height: 1.2;
+  letter-spacing: -.5px; color: var(--text);
+  text-wrap: balance; margin-bottom: 10px;
+}
+.hero-desc { font-size: 14px; color: var(--text-muted); max-width: 520px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+.stat-val {
+  font-family: var(--font-mono); font-size: 22px; font-weight: 700;
+  color: var(--text); font-variant-numeric: tabular-nums;
+}
+.stat-lbl {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .8px;
+}
+
+/* ── SECTION HEADER ─────────────────────────────────────────────────── */
+.sec-hdr { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.sec-hdr-title {
+  font-family: var(--font-ui); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted);
+  white-space: nowrap;
+}
+.sec-hdr-rule { flex: 1; height: 1px; background: var(--border); }
+
+/* ── CERT OVERVIEW GRID ─────────────────────────────────────────────── */
+.ov-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px; margin-bottom: 48px;
+}
+.ov-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--tc, var(--text-faint));
+  border-radius: var(--r);
+  padding: 18px 20px;
+  cursor: default;
+}
+.ov-code {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .6px; color: var(--tc, var(--text-muted));
+  margin-bottom: 5px;
+}
+.ov-name {
+  font-family: var(--font-ui); font-size: 14px; font-weight: 700;
+  color: var(--text); line-height: 1.25; margin-bottom: 8px;
+}
+.ov-target {
+  font-size: 12px; color: var(--text-muted); margin-bottom: 10px;
+}
+.track-pill {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 2px 9px; border-radius: 100px;
+  background: var(--tc-bg, var(--surface-alt));
+  color: var(--tc, var(--text-muted));
+}
+
+/* ── CERT SECTION ───────────────────────────────────────────────────── */
+.cs {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.cs-head {
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 26px 30px;
+  border-left: 4px solid var(--tc, var(--text-faint));
+  background: var(--tc-bg, var(--surface-alt));
+  border-bottom: 1px solid var(--border);
+}
+.cs-icon {
+  flex-shrink: 0; width: 48px; height: 48px;
+  border-radius: 10px; background: var(--tc, var(--text-muted));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.cs-code {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 1px; color: var(--tc, var(--text-muted)); margin-bottom: 3px;
+}
+.cs-title {
+  font-family: var(--font-ui); font-size: 19px; font-weight: 700;
+  color: var(--text); letter-spacing: -.3px; margin-bottom: 3px;
+}
+.cs-sub { font-size: 13px; color: var(--text-muted); }
+.cs-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.mpill {
+  font-size: 12px; padding: 3px 10px; border-radius: 100px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-muted); font-variant-numeric: tabular-nums;
+}
+.mpill strong { color: var(--text); }
+.cs-body { padding: 26px 30px; }
+.cs-section-title {
+  font-family: var(--font-ui); font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text-muted); margin-bottom: 14px;
+}
+
+/* ── EXAM META ──────────────────────────────────────────────────────── */
+.exam-meta {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px; margin-bottom: 26px;
+}
+.em-item {
+  background: var(--surface-alt); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 12px 14px;
+}
+.em-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .8px; color: var(--text-muted); margin-bottom: 3px; }
+.em-val {
+  font-family: var(--font-mono); font-size: 17px; font-weight: 700;
+  color: var(--text); font-variant-numeric: tabular-nums;
+}
+.em-unit { font-size: 11px; font-weight: 400; color: var(--text-muted); font-family: var(--font-body); }
+
+/* ── DOMAIN BARS ────────────────────────────────────────────────────── */
+.domains { display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; }
+.dom { display: flex; flex-direction: column; gap: 5px; }
+.dom-hdr { display: flex; justify-content: space-between; align-items: baseline; }
+.dom-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.dom-note { font-size: 11px; color: var(--text-faint); font-family: var(--font-mono); }
+.bar-track {
+  height: 5px; background: var(--surface-alt);
+  border-radius: 3px; overflow: hidden; border: 1px solid var(--border);
+}
+.bar-fill { height: 100%; border-radius: 3px; background: var(--tc, var(--text-muted)); opacity: .75; }
+
+/* ── TOPICS ─────────────────────────────────────────────────────────── */
+.topics {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5px 20px;
+  margin-bottom: 4px;
+}
+.topic {
+  font-size: 13px; color: var(--text-muted);
+  padding-left: 13px; position: relative;
+}
+.topic::before { content: '▸'; position: absolute; left: 0; color: var(--tc, var(--text-faint)); }
+
+/* ── STUDY NOTE ─────────────────────────────────────────────────────── */
+.study-note {
+  margin-top: 18px; padding: 14px 16px;
+  background: var(--tc-bg, var(--surface-alt));
+  border-radius: var(--r); border-left: 3px solid var(--tc, var(--border));
+}
+.study-note-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--tc, var(--text-muted)); margin-bottom: 4px; }
+.study-note p { font-size: 13px; color: var(--text-muted); }
+.study-note p strong { color: var(--text); }
+
+/* ── LEARNING PATH CARDS ────────────────────────────────────────────── */
+.path-grid { display: flex; flex-direction: column; gap: 20px; margin-bottom: 48px; }
+.path-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+}
+.path-head {
+  padding: 18px 24px; border-bottom: 1px solid var(--border);
+  background: var(--surface-alt);
+  display: flex; align-items: center; gap: 12px;
+}
+.path-role {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
+  padding: 3px 10px; border-radius: 100px;
+  background: var(--tc-bg, var(--surface-alt));
+  color: var(--tc, var(--text-muted));
+  border: 1px solid var(--tc-bg, var(--border));
+}
+.path-title { font-family: var(--font-ui); font-size: 15px; font-weight: 700; color: var(--text); }
+.path-steps { padding: 20px 24px; display: flex; flex-direction: column; gap: 0; }
+.ps {
+  display: flex; gap: 14px;
+  padding-bottom: 18px; position: relative;
+}
+.ps:not(:last-child)::before {
+  content: ''; position: absolute;
+  left: 13px; top: 28px; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.ps-num {
+  flex-shrink: 0; width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--surface-alt); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+.ps-num.cap {
+  background: var(--tc, var(--text-faint));
+  border-color: transparent; color: #fff;
+}
+.ps-content { flex: 1; padding-top: 3px; }
+.ps-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.ps-desc { font-size: 12px; color: var(--text-muted); }
+.ps-exam {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .5px; color: var(--tc, var(--text-muted));
+  margin-bottom: 2px;
+}
+
+/* ── RESOURCES ──────────────────────────────────────────────────────── */
+.res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+.res-cat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 20px;
+}
+.res-cat-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--text-muted); margin-bottom: 14px;
+}
+.rl {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+}
+.rl:last-child { border-bottom: none; padding-bottom: 0; }
+.rl-icon { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+.rl-name { font-size: 13px; font-weight: 600; color: var(--text); transition: color .14s; }
+.rl:hover .rl-name { color: var(--pro); }
+.rl-desc { font-size: 12px; color: var(--text-muted); }
+
+/* ── ARCHITECT CALLOUT ──────────────────────────────────────────────── */
+.arc-callout {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden; margin-bottom: 40px;
+}
+.arc-callout-head {
+  background: #0B1C30;
+  padding: 22px 30px;
+  display: flex; align-items: center; gap: 14px;
+}
+.arc-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--pro); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.arc-meta-name { font-size: 14px; font-weight: 700; color: #DDE8F4; }
+.arc-meta-title { font-size: 12px; color: #6A8FA8; }
+.arc-badge {
+  margin-left: auto;
+  font-size: 11px; font-weight: 700; letter-spacing: .5px;
+  padding: 3px 10px; border-radius: 100px;
+  background: rgba(0,171,190,.15); color: #00ABBE;
+  border: 1px solid rgba(0,171,190,.25);
+}
+.arc-callout-body { padding: 24px 30px; }
+.insights { display: flex; flex-direction: column; gap: 14px; }
+.ins { display: flex; gap: 12px; align-items: flex-start; }
+.ins-tag {
+  flex-shrink: 0; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px;
+  padding: 3px 8px; border-radius: 4px;
+  margin-top: 3px; width: 68px; text-align: center;
+}
+.ins-tag.tip      { background: var(--pro-bg); color: var(--pro); }
+.ins-tag.warn     { background: var(--arc-bg); color: var(--arc); }
+.ins-tag.strategy { background: var(--dev-bg); color: var(--dev); }
+.ins-text { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+.ins-text strong  { color: var(--text); }
+
+/* ── FOOTER ─────────────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+footer a { color: var(--text-muted); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hdr { padding: 0 16px; gap: 12px; }
+  .hdr-sub { display: none; }
+  .wrap { padding: 24px 16px 60px; }
+  .hero { padding: 28px 22px; }
+  .hero-title { font-size: 21px; }
+  .topics { grid-template-columns: 1fr; }
+  .res-grid { grid-template-columns: 1fr; }
+  .cs-head { padding: 18px 20px; }
+  .cs-body { padding: 18px 20px; }
+  .arc-callout-head { padding: 18px 20px; }
+  .arc-callout-body { padding: 18px 20px; }
+}
+</style>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-brand">
+    <div class="hdr-hex"></div>
+    <span class="hdr-name">Genesys Cloud CX</span>
+    <div class="hdr-sep"></div>
+    <span class="hdr-sub">Certification Notebook</span>
+  </div>
+  <nav class="hdr-nav" aria-label="Page sections">
+    <a href="#overview">Overview</a>
+    <a href="#gcx-gcp">Professional</a>
+    <a href="#gcx-arc">Architect</a>
+    <a href="#gcx-gcd">Developer</a>
+    <a href="#paths">Learning Paths</a>
+    <a href="#resources">Resources</a>
+    <a href="#insights">Architect Notes</a>
+  </nav>
+  <span class="hdr-ts">Updated Aug 2026</span>
+</header>
+
+<!-- MAIN -->
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="overview">
+    <div class="hero-eye">Genesys Beyond · Certification Reference</div>
+    <h1 class="hero-title">Genesys Cloud CX Certification Guide</h1>
+    <p class="hero-desc">
+      Curated reference notebook covering all three Genesys Cloud CX certification tracks — Professional, Architect, and Developer — with exam details, domain breakdowns, learning paths, and validated study guidance from a Genesys architect perspective.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">3</div>
+        <div class="stat-lbl">Certification tracks</div>
+      </div>
+      <div>
+        <div class="stat-val">3 yrs</div>
+        <div class="stat-lbl">Certification validity</div>
+      </div>
+      <div>
+        <div class="stat-val">$580</div>
+        <div class="stat-lbl">Exam registration fee</div>
+      </div>
+      <div>
+        <div class="stat-val">65%</div>
+        <div class="stat-lbl">Passing threshold (GCX-GCP)</div>
+      </div>
+      <div>
+        <div class="stat-val">beyond.genesys.com</div>
+        <div class="stat-lbl">Official training portal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW CARDS -->
+  <div class="sec-hdr">
+    <span class="sec-hdr-title">Certification Tracks</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+  <div class="ov-grid">
+    <div class="ov-card" style="--tc: var(--pro); --tc-bg: var(--pro-bg);">
+      <div class="ov-code">GCX-GCP</div>
+      <div class="ov-name">Cloud CX Professional</div>
+      <div class="ov-target">Admins &amp; implementation engineers</div>
+      <span class="track-pill">Professional</span>
+    </div>
+    <div class="ov-card" style="--tc: var(--arc); --tc-bg: var(--arc-bg);">
+      <div class="ov-code">GCX-ARC</div>
+      <div class="ov-name">Cloud CX Architect</div>
+      <div class="ov-target">Flow designers &amp; IVR specialists</div>
+      <span class="track-pill">Architect</span>
+    </div>
+    <div class="ov-card" style="--tc: var(--dev); --tc-bg: var(--dev-bg);">
+      <div class="ov-code">GCX-GCD</div>
+      <div class="ov-name">Cloud CX Developer</div>
+      <div class="ov-target">API &amp; integration engineers</div>
+      <span class="track-pill">Developer</span>
+    </div>
+    <div class="ov-card" style="--tc: var(--pro); --tc-bg: var(--pro-bg);">
+      <div class="ov-code">GCP-GCX</div>
+      <div class="ov-name">CX Certified Professional – Consolidated</div>
+      <div class="ov-target">Full-stack breadth across all domains</div>
+      <span class="track-pill">Consolidated</span>
+    </div>
+  </div>
+
+  <!-- ── GCX-GCP ──────────────────────────────────────────────────── -->
+  <div class="sec-hdr" id="gcx-gcp">
+    <span class="sec-hdr-title">Professional Track</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+
+  <div class="cs" style="--tc: var(--pro); --tc-bg: var(--pro-bg);">
+    <div class="cs-head">
+      <div class="cs-icon" style="background: var(--pro);">🏅</div>
+      <div>
+        <div class="cs-code">GCX-GCP</div>
+        <div class="cs-title">Genesys Cloud CX: Professional Certification</div>
+        <div class="cs-sub">Also distributed as GCP-GCX (Consolidated) — same knowledge base, same domains</div>
+        <div class="cs-pills">
+          <span class="mpill"><strong>55</strong> questions</span>
+          <span class="mpill"><strong>120</strong> min</span>
+          <span class="mpill">Pass: <strong>65%</strong></span>
+          <span class="mpill">Fee: <strong>$580 USD</strong></span>
+          <span class="mpill">Valid: <strong>3 years</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-body">
+      <!-- Exam Meta -->
+      <div class="cs-section-title">At a Glance</div>
+      <div class="exam-meta">
+        <div class="em-item">
+          <div class="em-lbl">Questions</div>
+          <div class="em-val">55</div>
+        </div>
+        <div class="em-item">
+          <div class="em-lbl">Duration</div>
+          <div class="em-val">120 <span class="em-unit">min</span></div>
+        </div>
+        <div class="em-item">
+          <div class="em-lbl">Pass Score</div>
+          <div class="em-val">65%</div>
+        </div>
+        <div class="em-item">
+          <div class="em-lbl">Exam Fee</div>
+          <div class="em-val">$580 <span class="em-unit">USD</span></div>
+        </div>
+        <div class="em-item">
+          <div class="em-lbl">Validity</div>
+          <div class="em-val">3 <span class="em-unit">years</span></div>
+        </div>
+        <div class="em-item">
+          <div class="em-lbl">Experience</div>
+          <div class="em-val">6+ <span class="em-unit">months</span></div>
+        </div>
+      </div>
+
+      <!-- Domains -->
+      <div class="cs-section-title">Exam Domains</div>
+      <div class="domains" style="--tc: var(--pro);">
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Platform Architecture &amp; Organization Setup</span>
+            <span class="dom-note">~30%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 30%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Contact Center Administration &amp; Implementation</span>
+            <span class="dom-note">~50%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 50%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Reporting, Analytics &amp; Quality Management</span>
+            <span class="dom-note">~20%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Topics -->
+      <div class="cs-section-title">Key Topics</div>
+      <div class="topics" style="--tc: var(--pro);">
+        <div class="topic">Genesys Cloud platform architecture &amp; regions</div>
+        <div class="topic">Organizations, divisions, roles &amp; permissions</div>
+        <div class="topic">Telephony: SIP trunks, BYOC Cloud/Premises</div>
+        <div class="topic">DID/DDI number management</div>
+        <div class="topic">ACD queues, skills, routing rules</div>
+        <div class="topic">Omnichannel: email, chat, messaging, social</div>
+        <div class="topic">Genesys Cloud Architect – call flow basics</div>
+        <div class="topic">IVR menus, DTMF, speech recognition</div>
+        <div class="topic">Outbound campaigns (predictive, preview, progressive)</div>
+        <div class="topic">Workforce Management (scheduling, adherence)</div>
+        <div class="topic">Quality Management (evaluations, calibrations)</div>
+        <div class="topic">Dashboards, queue views, interaction analytics</div>
+        <div class="topic">Recording policies &amp; compliance</div>
+        <div class="topic">Integrations: CRM, ticketing, SSO/SAML</div>
+      </div>
+
+      <div class="study-note" style="--tc: var(--pro); --tc-bg: var(--pro-bg);">
+        <div class="study-note-label">Study Note</div>
+        <p>The administration domain carries the most weight. Focus on <strong>queue routing configuration, user/role model, telephony setup, and Architect flow basics</strong>. The exam tests practical knowledge — hands-on time in a Genesys Cloud org is strongly recommended before sitting the exam.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GCX-ARC ──────────────────────────────────────────────────── -->
+  <div class="sec-hdr" id="gcx-arc">
+    <span class="sec-hdr-title">Architect Track</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+
+  <div class="cs" style="--tc: var(--arc); --tc-bg: var(--arc-bg);">
+    <div class="cs-head">
+      <div class="cs-icon" style="background: var(--arc);">🧱</div>
+      <div>
+        <div class="cs-code">GCX-ARC</div>
+        <div class="cs-title">Genesys Cloud CX: Architect Certification</div>
+        <div class="cs-sub">Specialized on the Genesys Cloud Architect flow-builder tool — IVR, bots, and routing flows</div>
+        <div class="cs-pills">
+          <span class="mpill">Flow design focused</span>
+          <span class="mpill">Hands-on configuration</span>
+          <span class="mpill">Fee: <strong>$580 USD</strong></span>
+          <span class="mpill">Valid: <strong>3 years</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-body">
+      <!-- Domains -->
+      <div class="cs-section-title">Exam Domains</div>
+      <div class="domains" style="--tc: var(--arc);">
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Architect Interface &amp; Project Management</span>
+            <span class="dom-note">Foundational</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Variables, Prompts &amp; Audio Management</span>
+            <span class="dom-note">Core</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 25%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Inbound Call Flow Design</span>
+            <span class="dom-note">Heavy</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 35%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Scheduling, Outbound &amp; Secure Flows</span>
+            <span class="dom-note">Advanced</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Topics -->
+      <div class="cs-section-title">Key Topics</div>
+      <div class="topics" style="--tc: var(--arc);">
+        <div class="topic">Architect tool navigation &amp; flow types overview</div>
+        <div class="topic">Inbound call flows end-to-end</div>
+        <div class="topic">Inbound message &amp; email flows</div>
+        <div class="topic">Menu actions (DTMF, ASR speech recognition)</div>
+        <div class="topic">Queue transfer, voicemail, callback actions</div>
+        <div class="topic">Variables: string, integer, boolean, collections</div>
+        <div class="topic">Prompt recording, upload &amp; TTS configuration</div>
+        <div class="topic">Data Actions (HTTP callout to external APIs)</div>
+        <div class="topic">Decision logic, loops, switch actions</div>
+        <div class="topic">Schedule groups &amp; emergency routing overrides</div>
+        <div class="topic">Secure call flows (PCI-compliant DTMF collection)</div>
+        <div class="topic">Outbound call flows (IVR outbound)</div>
+        <div class="topic">Bot flows &amp; digital bot integration</div>
+        <div class="topic">Flow versioning, publishing &amp; testing</div>
+      </div>
+
+      <div class="study-note" style="--tc: var(--arc); --tc-bg: var(--arc-bg);">
+        <div class="study-note-label">Study Note</div>
+        <p><strong>This exam is highly practical.</strong> Reading documentation alone is insufficient. You need active time in the Genesys Cloud Architect tool building call flows, configuring data actions, and working through edge cases like schedule-based fallback, DTMF timeout handling, and secure payment flows. Build at least 10 distinct flows before the exam.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GCX-GCD ──────────────────────────────────────────────────── -->
+  <div class="sec-hdr" id="gcx-gcd">
+    <span class="sec-hdr-title">Developer Track</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+
+  <div class="cs" style="--tc: var(--dev); --tc-bg: var(--dev-bg);">
+    <div class="cs-head">
+      <div class="cs-icon" style="background: var(--dev);">⚙️</div>
+      <div>
+        <div class="cs-code">GCX-GCD</div>
+        <div class="cs-title">Genesys Cloud CX: Developer Certification</div>
+        <div class="cs-sub">API design, integrations, custom application development on Genesys Cloud CX platform</div>
+        <div class="cs-pills">
+          <span class="mpill">API &amp; SDK focused</span>
+          <span class="mpill">Integration architecture</span>
+          <span class="mpill">Fee: <strong>$580 USD</strong></span>
+          <span class="mpill">Valid: <strong>3 years</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-body">
+      <!-- Domains -->
+      <div class="cs-section-title">Exam Domains</div>
+      <div class="domains" style="--tc: var(--dev);">
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Platform Fundamentals &amp; Authentication</span>
+            <span class="dom-note">~20%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Core APIs – Users, Conversations, Routing</span>
+            <span class="dom-note">~35%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 35%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Analytics, Notification &amp; Recording APIs</span>
+            <span class="dom-note">~20%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+        </div>
+        <div class="dom">
+          <div class="dom-hdr">
+            <span class="dom-name">Integrations, Agent App SDK &amp; Custom Dev</span>
+            <span class="dom-note">~25%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 25%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Topics -->
+      <div class="cs-section-title">Key Topics</div>
+      <div class="topics" style="--tc: var(--dev);">
+        <div class="topic">OAuth 2.0 flows (authorization code, client credentials, PKCE)</div>
+        <div class="topic">SAML SSO integration</div>
+        <div class="topic">Roles, divisions &amp; OAuth scope model</div>
+        <div class="topic">REST API patterns &amp; pagination</div>
+        <div class="topic">Genesys Cloud Platform SDKs (JS, Python, .NET, Java)</div>
+        <div class="topic">Users API, Groups API, Presence API</div>
+        <div class="topic">Conversations API (voice, chat, email, messaging)</div>
+        <div class="topic">Routing API (queues, skills, wrap-up codes)</div>
+        <div class="topic">Analytics Conversations API (detail &amp; aggregate)</div>
+        <div class="topic">Notification Service (WebSocket/EventBridge)</div>
+        <div class="topic">Recording API &amp; media access</div>
+        <div class="topic">Agent App SDK (panel extensions, event hooks)</div>
+        <div class="topic">Data Actions (HTTP actions in Architect &amp; scripts)</div>
+        <div class="topic">Premium Apps &amp; AppFoundry integration lifecycle</div>
+        <div class="topic">Webhooks, event triggers &amp; serverless patterns</div>
+        <div class="topic">Genesys Cloud Scripting (agent desktop scripting)</div>
+      </div>
+
+      <div class="study-note" style="--tc: var(--dev); --tc-bg: var(--dev-bg);">
+        <div class="study-note-label">Study Note</div>
+        <p>The developer portal at <strong>developer.genesys.com</strong> includes an interactive API Explorer — use it to run live API calls against a sandbox org. The exam tests knowledge of response schemas, error codes, and correct API sequencing (e.g., when to use conversation vs. analytics endpoints for historical vs. real-time data).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LEARNING PATHS ───────────────────────────────────────────── -->
+  <div class="sec-hdr" id="paths">
+    <span class="sec-hdr-title">Learning Paths</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+
+  <div class="path-grid">
+
+    <!-- System Admin / Implementation Path -->
+    <div class="path-card" style="--tc: var(--pro); --tc-bg: var(--pro-bg);">
+      <div class="path-head">
+        <span class="path-role" style="background: var(--pro-bg); color: var(--pro); border-color: var(--pro-bg);">System Admin</span>
+        <span class="path-title">Implementation &amp; Administration Path → GCX-GCP</span>
+      </div>
+      <div class="path-steps">
+        <div class="ps">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-name">Genesys Cloud Overview &amp; Architecture</div>
+            <div class="ps-desc">Platform introduction, regional deployment model, Admin console orientation</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-name">Organization, Users &amp; Access Control</div>
+            <div class="ps-desc">Org setup, divisions, role-based access, SSO/SAML federation</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-name">Telephony &amp; Network Configuration</div>
+            <div class="ps-desc">BYOC Cloud, BYOC Premises, Genesys Cloud Voice, DID management, Edge appliances</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-name">ACD Routing &amp; Queue Configuration</div>
+            <div class="ps-desc">Queues, skills, routing strategies (standard, skills-based, preferred agent), wrap-up codes</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">5</div>
+          <div class="ps-content">
+            <div class="ps-name">Genesys Cloud Architect – IVR Fundamentals</div>
+            <div class="ps-desc">Basic inbound call flows, menus, queue transfer, schedule routing, prompts</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">6</div>
+          <div class="ps-content">
+            <div class="ps-name">Digital Channels</div>
+            <div class="ps-desc">Chat, email, SMS, social media messaging configuration and routing</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">7</div>
+          <div class="ps-content">
+            <div class="ps-name">Outbound Campaigns</div>
+            <div class="ps-desc">Campaign types (predictive, preview, progressive, agentless), contact lists, compliance</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">8</div>
+          <div class="ps-content">
+            <div class="ps-name">Reporting, Analytics &amp; Quality Management</div>
+            <div class="ps-desc">Queue performance views, interaction analytics, evaluations, calibrations, scorecards</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">9</div>
+          <div class="ps-content">
+            <div class="ps-name">Workforce Engagement Management (WEM)</div>
+            <div class="ps-desc">Scheduling, real-time adherence, forecasting, performance development</div>
+          </div>
+        </div>
+        <div class="ps" style="padding-bottom: 0;">
+          <div class="ps-num cap" style="background: var(--pro);">✓</div>
+          <div class="ps-content">
+            <div class="ps-exam">GCX-GCP EXAM</div>
+            <div class="ps-name">55 questions · 120 min · 65% to pass</div>
+            <div class="ps-desc">Schedule via beyond.genesys.com after completing required coursework</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architect Flow Builder Path -->
+    <div class="path-card" style="--tc: var(--arc); --tc-bg: var(--arc-bg);">
+      <div class="path-head">
+        <span class="path-role" style="background: var(--arc-bg); color: var(--arc); border-color: var(--arc-bg);">Architect</span>
+        <span class="path-title">Flow Builder Specialist Path → GCX-ARC</span>
+      </div>
+      <div class="path-steps">
+        <div class="ps">
+          <div class="ps-num">Pre</div>
+          <div class="ps-content">
+            <div class="ps-name">Prerequisite: GCX-GCP (recommended)</div>
+            <div class="ps-desc">Admin platform knowledge gives context for flow-builder configuration</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-name">Architect Tool Deep Dive</div>
+            <div class="ps-desc">Interface, flow types, actions library, canvas navigation, publishing workflow</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-name">Prompts &amp; Audio Management</div>
+            <div class="ps-desc">Recording, uploading WAV/MP3, TTS configuration, prompt sequencing</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-name">Variables, Expressions &amp; Logic</div>
+            <div class="ps-desc">Data types, collections, conditionals, switch, loops, error paths</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-name">Data Actions &amp; External Integrations</div>
+            <div class="ps-desc">HTTP callout to CRM/backend APIs, response mapping, fallback handling</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">5</div>
+          <div class="ps-content">
+            <div class="ps-name">Schedule Groups &amp; Emergency Routing</div>
+            <div class="ps-desc">Business hours, holiday schedules, emergency override flows</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">6</div>
+          <div class="ps-content">
+            <div class="ps-name">Advanced Flow Patterns</div>
+            <div class="ps-desc">Secure flows (PCI), outbound IVR, digital bot flows, callback scheduling</div>
+          </div>
+        </div>
+        <div class="ps" style="padding-bottom: 0;">
+          <div class="ps-num cap" style="background: var(--arc);">✓</div>
+          <div class="ps-content">
+            <div class="ps-exam">GCX-ARC EXAM</div>
+            <div class="ps-name">Architect Certification · Practical flow knowledge required</div>
+            <div class="ps-desc">Build at minimum 8–10 distinct flows in a live org before sitting the exam</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer Path -->
+    <div class="path-card" style="--tc: var(--dev); --tc-bg: var(--dev-bg);">
+      <div class="path-head">
+        <span class="path-role" style="background: var(--dev-bg); color: var(--dev); border-color: var(--dev-bg);">Developer</span>
+        <span class="path-title">API &amp; Integration Engineering Path → GCX-GCD</span>
+      </div>
+      <div class="path-steps">
+        <div class="ps">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-name">Platform Overview &amp; API Architecture</div>
+            <div class="ps-desc">Genesys Cloud CX as a platform, microservices model, API versioning strategy</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-name">Authentication &amp; Authorization</div>
+            <div class="ps-desc">OAuth 2.0 (authorization code + PKCE for browser apps, client credentials for server), token lifecycle, scopes</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-name">Core Platform APIs</div>
+            <div class="ps-desc">Users, Groups, Presence, Routing (queues, skills), Conversations (voice/chat/email)</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-name">Notification Service</div>
+            <div class="ps-desc">WebSocket-based real-time events, topic subscription model, reconnection handling</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">5</div>
+          <div class="ps-content">
+            <div class="ps-name">Analytics &amp; Reporting APIs</div>
+            <div class="ps-desc">Conversation details vs. aggregate queries, metrics taxonomy, async query jobs</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">6</div>
+          <div class="ps-content">
+            <div class="ps-name">Agent App SDK &amp; Scripter</div>
+            <div class="ps-desc">Panel extensions, event hooks, client-side scripting within the agent desktop</div>
+          </div>
+        </div>
+        <div class="ps">
+          <div class="ps-num">7</div>
+          <div class="ps-content">
+            <div class="ps-name">Integration Patterns &amp; AppFoundry</div>
+            <div class="ps-desc">Premium App lifecycle, webhooks, serverless patterns, CRM integration blueprints</div>
+          </div>
+        </div>
+        <div class="ps" style="padding-bottom: 0;">
+          <div class="ps-num cap" style="background: var(--dev);">✓</div>
+          <div class="ps-content">
+            <div class="ps-exam">GCX-GCD EXAM</div>
+            <div class="ps-name">Developer Certification · API practical knowledge required</div>
+            <div class="ps-desc">Use the developer.genesys.com API Explorer to run live calls before the exam</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── RESOURCES ─────────────────────────────────────────────────── -->
+  <div class="sec-hdr" id="resources">
+    <span class="sec-hdr-title">Official Resources</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+
+  <div class="res-grid">
+    <div class="res-cat">
+      <div class="res-cat-title">Training &amp; Certification Portal</div>
+      <a class="rl" href="https://beyond.genesys.com/explore/certification/cloud" target="_blank" rel="noopener">
+        <span class="rl-icon">🎓</span>
+        <div>
+          <div class="rl-name">Genesys Beyond — Certifications</div>
+          <div class="rl-desc">Official exam registration, exam objectives, certification status. Free account available for limited eLearning.</div>
+        </div>
+      </a>
+      <a class="rl" href="https://beyond.genesys.com/explore/learning-path/home" target="_blank" rel="noopener">
+        <span class="rl-icon">🗺</span>
+        <div>
+          <div class="rl-name">Genesys Beyond — Learning Paths</div>
+          <div class="rl-desc">Structured learning paths per role. Requires Genesys Cloud Learning Subscription (1-year individual).</div>
+        </div>
+      </a>
+      <a class="rl" href="https://beyond.genesys.com/genesys-cloud-cx-elearning" target="_blank" rel="noopener">
+        <span class="rl-icon">📺</span>
+        <div>
+          <div class="rl-name">Genesys Cloud CX eLearning Catalog</div>
+          <div class="rl-desc">Self-paced courses, ILT, and virtual instructor-led. Agents/Supervisors track is free-tier accessible.</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="res-cat">
+      <div class="res-cat-title">Documentation</div>
+      <a class="rl" href="https://help.genesys.cloud" target="_blank" rel="noopener">
+        <span class="rl-icon">📘</span>
+        <div>
+          <div class="rl-name">Genesys Cloud Resource Center</div>
+          <div class="rl-desc">Official product documentation. Authoritative source for admin, architect, and developer content.</div>
+        </div>
+      </a>
+      <a class="rl" href="https://developer.genesys.cloud" target="_blank" rel="noopener">
+        <span class="rl-icon">⚡</span>
+        <div>
+          <div class="rl-name">Genesys Cloud Developer Center</div>
+          <div class="rl-desc">API Explorer (live call testing), SDK downloads, tutorials, blueprints &amp; integration guides.</div>
+        </div>
+      </a>
+      <a class="rl" href="https://community.genesys.com" target="_blank" rel="noopener">
+        <span class="rl-icon">💬</span>
+        <div>
+          <div class="rl-name">Genesys Community</div>
+          <div class="rl-desc">Peer forums, exam discussion threads, Q&amp;A from certified professionals &amp; Genesys staff.</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="res-cat">
+      <div class="res-cat-title">Exam Preparation</div>
+      <a class="rl" href="https://www.vmexam.com/genesys/genesys-gcx-gcp-certification-exam-sample-questions" target="_blank" rel="noopener">
+        <span class="rl-icon">📝</span>
+        <div>
+          <div class="rl-name">VMExam — Genesys Practice Questions</div>
+          <div class="rl-desc">Free sample questions for GCX-GCP, GCX-ARC, GCX-GCD with syllabus guides.</div>
+        </div>
+      </a>
+      <a class="rl" href="https://quizlet.com/775039072/genesys-cloud-cx-gcp-gcx-real-questions-flash-cards/" target="_blank" rel="noopener">
+        <span class="rl-icon">🃏</span>
+        <div>
+          <div class="rl-name">Quizlet Flashcards — GCX-GCP</div>
+          <div class="rl-desc">Community-built flashcard deck for the Professional exam. Good for terminology drill.</div>
+        </div>
+      </a>
+      <a class="rl" href="https://www.examtopics.com/exams/genesys/gcp-gcx/" target="_blank" rel="noopener">
+        <span class="rl-icon">🔍</span>
+        <div>
+          <div class="rl-name">ExamTopics — GCP-GCX Q&amp;A</div>
+          <div class="rl-desc">Community Q&amp;A with discussion. Verify currency — Genesys updates the platform frequently.</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="res-cat">
+      <div class="res-cat-title">Subscription Options</div>
+      <div class="rl" style="cursor: default;">
+        <span class="rl-icon">✅</span>
+        <div>
+          <div class="rl-name">Free Genesys Beyond Account</div>
+          <div class="rl-desc">Limited eLearning access — agent &amp; supervisor tracks. No cost. Register at beyond.genesys.com.</div>
+        </div>
+      </div>
+      <div class="rl" style="cursor: default;">
+        <span class="rl-icon">📦</span>
+        <div>
+          <div class="rl-name">Genesys Cloud Learning Subscription</div>
+          <div class="rl-desc">1-year individual subscription. Full catalog access + certification exam vouchers included. Recommended for engineers pursuing GCX-GCP/ARC/GCD.</div>
+        </div>
+      </div>
+      <div class="rl" style="cursor: default; border-bottom: none; padding-bottom: 0;">
+        <span class="rl-icon">🏢</span>
+        <div>
+          <div class="rl-name">Team / Partner Subscriptions</div>
+          <div class="rl-desc">Available for Genesys partners and customers with multiple learners. Contact Genesys Education team.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ARCHITECT PERSONA INSIGHTS ──────────────────────────────── -->
+  <div class="sec-hdr" id="insights">
+    <span class="sec-hdr-title">Genesys Architect Perspective</span>
+    <div class="sec-hdr-rule"></div>
+  </div>
+
+  <div class="arc-callout">
+    <div class="arc-callout-head">
+      <div class="arc-avatar">🏗</div>
+      <div class="arc-meta">
+        <div class="arc-meta-name">Genesys Certified Architect — Validation Notes</div>
+        <div class="arc-meta-title">Experienced Genesys Cloud CX architect &amp; implementation lead perspective</div>
+      </div>
+      <span class="arc-badge">GCX-GCP · GCX-ARC · GCX-GCD</span>
+    </div>
+    <div class="arc-callout-body">
+      <div class="insights">
+        <div class="ins">
+          <span class="ins-tag strategy">Strategy</span>
+          <div class="ins-text">
+            <strong>Certify in order: GCX-GCP first, then GCX-ARC, then GCX-GCD.</strong> The professional exam establishes the admin model — roles, divisions, queues, telephony — that everything else references. GCX-ARC and GCX-GCD are much harder to absorb without that foundation. The consolidated GCP-GCX covers all domains but assumes the same depth; it is not an easier route.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag warn">Warning</span>
+          <div class="ins-text">
+            <strong>Third-party exam dumps go stale fast.</strong> Genesys ships platform updates weekly. A dump from six months ago may contain questions about deprecated UI flows or removed features. Use community Q&amp;A (ExamTopics, VMExam) to understand question patterns and domain emphasis — not to memorize answers verbatim.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag tip">Tip</span>
+          <div class="ins-text">
+            <strong>Request a sandbox org (trial or dev org) before GCX-ARC.</strong> The Architect exam is genuinely hands-on in spirit. You cannot fake knowledge of how data action response mapping works, how schedule group inheritance behaves, or what happens to an in-progress flow when you publish a new version — you have to have seen it. The exam will expose gaps in anyone who studied by reading alone.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag tip">Tip</span>
+          <div class="ins-text">
+            <strong>Use the API Explorer at developer.genesys.com for GCX-GCD prep.</strong> Run live GET requests against your org for Users, Conversations, and Analytics. Understand which fields come back, how pagination works (pageSize + pageNumber vs cursor), and the difference between /v2/analytics/conversations/details/query (POST, async jobs) and /v2/analytics/conversations (GET, lightweight). The exam tests this granularity.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag warn">Warning</span>
+          <div class="ins-text">
+            <strong>MFA is now mandatory (April 2026+).</strong> When accessing Genesys Cloud for study or exam-prep sandbox work, multi-factor authentication is required. Ensure your org and Beyond portal accounts are MFA-enrolled before your study sessions to avoid lockout friction.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag strategy">Strategy</span>
+          <div class="ins-text">
+            <strong>For GCX-GCP, memorize the routing configuration hierarchy.</strong> The most-tested area is: organization → divisions → queues → routing strategy → skill requirements → agent matching. Know the difference between ring all, skills-based routing, preferred agent routing, and bullseye routing by heart. Queue configuration is where most candidates lose points.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag tip">Tip</span>
+          <div class="ins-text">
+            <strong>The Genesys Community exam discussion thread is underrated.</strong> Search community.genesys.com for the exam code (GCX-GCP, GCX-ARC, GCX-GCD). Certified professionals often post topic breakdowns and study reflections. These are more current than most third-party prep sites because they're from people who just sat the exam.
+          </div>
+        </div>
+        <div class="ins">
+          <span class="ins-tag strategy">Strategy</span>
+          <div class="ins-text">
+            <strong>Learning Subscription is worth it if you're pursuing all three certs.</strong> The per-exam fee ($580 × 3 = $1,740 for all tracks) plus the Learning Subscription cost covers full catalog access + exam vouchers. If your organization sponsors the certification, the subscription is the higher-leverage option versus paying per exam individually.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+    Genesys Cloud CX Certification Notebook · Compiled August 2026 ·
+    Source: <a href="https://beyond.genesys.com/explore/certification/cloud" target="_blank" rel="noopener">Genesys Beyond</a>,
+    <a href="https://community.genesys.com" target="_blank" rel="noopener">Genesys Community</a>,
+    <a href="https://developer.genesys.com" target="_blank" rel="noopener">developer.genesys.com</a> ·
+    Verify exam objectives at beyond.genesys.com before sitting any exam.
+  </div>
+</footer>

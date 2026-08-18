@@ -1,0 +1,50 @@
+# Genesys Cloud CX Certification Guide
+
+Principal-architect-validated study kit for Genesys Cloud CX certifications. Built with verified exam data and real-world implementation context.
+
+## Live Notebook
+
+**NotebookLM:** [Genesys Cloud CX Certification Guide](https://notebook.google.com/notebook/871a6c77-64ce-4183-b8d5-82332843bc20)
+
+The notebook contains:
+- 7 curated sources (official Genesys Beyond, exam guides, developer docs)
+- AI-generated Study Guide, Flashcards (Hard), Quiz (Hard)
+- Audio Overview discussion on GCX-GCP exam strategy
+- HOW TO USE guide note
+
+## Interactive Curriculum
+
+Open `index.html` locally in any browser — no server needed.
+
+- Certified path cards for all 4 tracks
+- Domain weight bars with topic breakdowns
+- Step-by-step learning path timelines
+- Architect persona validation section (Strategy / Warning / Tip insights)
+
+## Certifications Covered
+
+| Cert | Code | Focus | Fee | Pass |
+|------|------|-------|-----|------|
+| Professional | GCX-GCP | Admin, routing, reporting | $580 | 65% |
+| Architect | GCX-ARC | Design, infrastructure, migrations | $580 | 65% |
+| Developer | GCX-GCD | APIs, integrations, SDK | $580 | 65% |
+| Consolidated | GCP-GCX | Broad platform competency | $580 | 65% |
+
+## Quick Study Files
+
+- [`study-guide.md`](study-guide.md) — domain breakdown + key topics per cert
+- [`flashcards.md`](flashcards.md) — Q&A pairs for rapid review
+- [`exam-tips.md`](exam-tips.md) — architect-validated pitfalls and strategies
+
+## Recommended Study Order
+
+1. GCX-GCP (Professional) — foundation, attempt first
+2. GCX-GCD (Developer) — API/integration layer
+3. GCX-ARC (Architect) — design mastery, hardest
+
+## Resources
+
+- [Genesys Beyond](https://beyond.genesys.com) — official training portal
+- [Genesys Cloud Developer Center](https://developer.genesys.cloud) — API docs
+- [Genesys Community](https://community.genesys.com) — Q&A, practice scenarios
+- [AppFoundry](https://appfoundry.genesys.com) — integration catalog
